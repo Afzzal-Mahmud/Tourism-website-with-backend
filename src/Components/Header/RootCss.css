@@ -1,0 +1,29 @@
+/* Adding all color for the UI Design */
+:root{
+    --primary: #ff9a16;
+    --white-overlay : #eeeeee;
+    --secondary : #161a1e;
+    --pure : #f6f6f7;
+    --footer : #474760;
+}
+.primary-background{
+    background : var(--primary)
+}
+.primary-color{
+    color : var(--primary)
+}
+.secondary-color{
+    color: var(--secondery);
+}
+.overlay-background{
+    background: var(--white-overlay);
+}
+.overlay-color{
+    color: var(--white-overlay);
+}
+.secondery-background{
+    background: var(--secondery);
+}
+.font{
+    color: var(--font);
+}

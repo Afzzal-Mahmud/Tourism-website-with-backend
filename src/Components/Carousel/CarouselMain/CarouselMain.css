@@ -1,0 +1,25 @@
+.carousel-caption{
+    position: absolute;
+    right: 15%;
+    bottom: 35%;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* responsive behaiviour of carousel */
+@media screen and (max-width:900px) {
+    .carousel-caption{
+        bottom: 25%;
+    }
+}
+@media screen and (max-width:400px) {
+    .carousel-caption{
+        bottom: 20%;
+    }
+    .hide-mobile{
+        display: none;
+    }
+}

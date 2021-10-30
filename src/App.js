@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carousel from './Components/Carousel/CarouselMain/Carousel';
+import Carousel from './Components/Carousel/CarouselMain/CarouselMain';
 import Header from './Components/Header/Header';
 
 function App() {

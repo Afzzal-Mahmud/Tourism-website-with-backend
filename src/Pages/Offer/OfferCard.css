@@ -1,0 +1,11 @@
+.card-main{
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 3em;
+}
+.offer-btn{
+    padding: 5px 15px;
+    background: #fed045;
+    font-size: 18px;
+}

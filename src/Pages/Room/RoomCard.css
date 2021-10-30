@@ -1,0 +1,7 @@
+.grid-icon{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.ba{
+    color: #ff9a16;
+}

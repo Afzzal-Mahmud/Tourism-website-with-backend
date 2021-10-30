@@ -5,10 +5,13 @@ import Carousel1 from '../CarouselImage/carousel1.jpg'
 import Carousel2 from '../CarouselImage/carousel2.jpg'
 import Carousel3 from '../CarouselImage/carousel3.jpg'
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import OfferCard from '../../../Pages/Offer/OfferCard';
 /* carousel banner components */
 function CarouselMain() {
     return (
-        <Carousel fade>
+        <>
+            <Carousel fade>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -70,6 +73,10 @@ function CarouselMain() {
                 </div>
             </Carousel.Item>
         </Carousel>
+        <Container>
+            <OfferCard></OfferCard>
+        </Container>
+        </>
     )
 }
 export default CarouselMain;

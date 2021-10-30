@@ -1,6 +1,5 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-// import { Facebook, Google, Twitter } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import './Footer.css';
 
@@ -17,19 +16,20 @@ function Footer() {
                     </div>
                     {/* item-image utility class comes from WhyChooseUs.css file */}
                     <div className="d-flex">
-                        {/* <Facebook className='item-image me-4'></Facebook>
-                        <Google className='item-image me-4'></Google>
-                        <Twitter className='item-image me-4'></Twitter> */}
+                    <i class="bi bi-facebook item-image me-4"></i>
+                    <i class="bi bi-whatsapp item-image me-4"></i>
+                    <i class="bi bi-youtube item-image me-4"></i>
+                    <i class="bi bi-twitter item-image me-4"></i>
                     </div>
                 </div>
                 <div className="footer-link">
                     <h4>Explore</h4>
-                    {/* <div className="link-container">
+                    <div className="link-container">
                         <p><Link className='text-white' to='/home'>Home</Link></p>
-                        <p><Link className='text-white' to='/'></Link></p>
-                        <p><Link className='text-white' to='/'></Link></p>
-                        <p><Link className='text-white' to='/'></Link></p>
-                    </div> */}
+                        <p><Link className='text-white' to='/recommended'>Recommended</Link></p>
+                        <p><Link className='text-white' to='/bestplan'>Your Plan</Link></p>
+                        <p><Link className='text-white' to='/login'>Log In</Link></p>
+                    </div>
                 </div>
             </Container>
         </div>

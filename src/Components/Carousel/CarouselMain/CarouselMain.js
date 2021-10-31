@@ -1,9 +1,6 @@
 import React from 'react';
 import './CarouselMain.css'
 import Carousel from 'react-bootstrap/Carousel';/* import images */
-import Carousel1 from '../CarouselImage/carousel1.jpg'
-import Carousel2 from '../CarouselImage/carousel2.jpg'
-import Carousel3 from '../CarouselImage/carousel3.jpg'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import OfferCard from '../../../Pages/Offer/OfferCard';
@@ -15,7 +12,7 @@ function CarouselMain() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={Carousel1}
+                    src="https://i.ibb.co/3F5tvmt/carousel1.jpg"
                     alt="First slide"
                 />
                 <div className='carousel-caption'>
@@ -34,7 +31,7 @@ function CarouselMain() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={Carousel2}
+                    src="https://i.ibb.co/Q6LbZz1/carousel3.jpg"
                     alt="Second slide"
                 />
 
@@ -54,7 +51,7 @@ function CarouselMain() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={Carousel3}
+                    src="https://i.ibb.co/4JqTnp5/carousel2.jpg" 
                     alt="Third slide"
                 />
 

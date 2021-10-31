@@ -7,6 +7,7 @@ import OfferCard from './Pages/Offer/OfferCard';
 import RoomCard from './Pages/Room/RoomCard';
 import Pricing from './Pages/Pricing/Pricing';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LogIn from './Components/LogIn/LogIn';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/recommended' component={OfferCard}></Route>
         <Route path='/bestplan' component={RoomCard}></Route>
         <Route path='/membership' component={Pricing}></Route>
+        <Route path='/login' component={LogIn}></Route>
       </Switch>
       <Footer></Footer>
     </Router>

@@ -13,7 +13,9 @@ function Admin() {
         }
         axios.post('http://localhost:5000/offers',offers)
         .then(Response => {
-            console.log(Response)
+            if(Response.data.insertedId){
+                alert('your offers added successfully')
+            }
         })
         console.log(offers)
     }

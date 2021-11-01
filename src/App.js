@@ -11,6 +11,7 @@ import LogIn from './Components/LogIn/LogIn';
 import AuthProvider from './Context/AuthProvider';
 import YourCart from './Pages/YourCart/YourCart';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Admin from './Pages/Admin/Admin';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/recommended' component={OfferCard}></Route>
         <Route path='/bestplan' component={RoomCard}></Route>
         <Route path='/membership' component={Pricing}></Route>
+        <Route path='/admin' component={Admin}></Route>
         <Route path='/login' component={LogIn}></Route>
         <Route path='/yourcart'>
           <YourCart></YourCart>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './OfferCard.css'
 /* offer card components */
 function OfferCard(){
@@ -15,7 +16,8 @@ function OfferCard(){
                    </p>
                    <span>star icon ***</span>
                    <h5>$350 per person</h5>
-                   <button className='offer-btn'>Add Offer</button>
+                   {/* offer btn came from offer.css and btn-border came from App.css */}
+                   <Link to='/yourcart'><button className='offer-btn btn-border'>Add Offer</button></Link>
                </div>
            </div>
            {/* last one */}
@@ -30,7 +32,8 @@ function OfferCard(){
                    </p>
                    <span>star icon ***</span>
                    <h5>$350 per person</h5>
-                   <button className='offer-btn'>Add Offer</button>
+                   {/* offer btn came from offer.css and btn-border came from App.css */}
+                   <Link to='/yourcart'><button className='offer-btn btn-border'>Add Offer</button></Link>
                </div>
            </div>
            {/* last one end */}

@@ -9,6 +9,8 @@ import Pricing from './Pages/Pricing/Pricing';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LogIn from './Components/LogIn/LogIn';
 import AuthProvider from './Context/AuthProvider';
+import YourCart from './Pages/YourCart/YourCart';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
         <Route path='/bestplan' component={RoomCard}></Route>
         <Route path='/membership' component={Pricing}></Route>
         <Route path='/login' component={LogIn}></Route>
+        <Route path='/yourcart'>
+          <YourCart></YourCart>
+        </Route>
       </Switch>
       <Footer></Footer>
     </Router>

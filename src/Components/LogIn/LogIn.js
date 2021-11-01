@@ -1,16 +1,16 @@
 import './Login.css'
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import useFirebase from '../../Hooks/useFirebase';
 import { useForm } from "react-hook-form";
-import { createUserWithEmailAndPassword } from '@firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import useAuth from '../../Hooks/useAuth';
 
 
 /* LogIn components */
 
 function LogIn(){
     /* google sign in method */
-    const {signInUsignGoogle} = useFirebase()
+    const {signInUsignGoogle,setUser,setErr,err} = useAuth()
     /* hook form validation */
     const { register, handleSubmit, formState: { errors },reset } = useForm();
     /* user status */
@@ -26,20 +26,27 @@ function LogIn(){
             status ? 
             /* if user don't have any account he will createUserAccount and status is false
             but if he have already an account he will logInWith email and password */
-            logInWithEmailAndPassword(userInputEmail,userInputPassword) 
-            : createUserWithEmailAndPassword(userInputEmail,userInputPassword)
+            logInUser(userInputEmail,userInputPassword) 
+            : createUser(userInputEmail,userInputPassword)
         }
     }
+    const auth = getAuth()
     /* logIn user with email*/
-    function logInWithEmailAndPassword(userEmail,userPassword) {
-        console.log(userEmail,userPassword,'have checkmark active and logIn function')
+    function logInUser(userEmail,userPassword) {
+        signInWithEmailAndPassword(auth,userEmail,userPassword)
+        .then(result =>{
+            console.log(result.user)
+        }).catch(error =>{
+            console.log(error)
+            setErr("you don't have any account or invalid password")
+        })
     }
-    function createUserWithEmailAndPassword(userEmail,userPassword) {
-        console.log(userEmail,userPassword,'have checkmark deactive and create user function')
-    }
-    /* use this function to impliment a user log In or Sign In */
-    function signInOrSignUp() {
-        
+    function createUser(userEmail,userPassword) {
+        createUserWithEmailAndPassword(auth,userEmail,userPassword)
+        .then(result =>{
+            console.log(result.user)
+            setUser(result.user)
+        })
     }
     /* for checking the user account */
     function haveAnyAccount(e) {
@@ -71,7 +78,8 @@ function LogIn(){
                } })}/>
                {/* hendling password errors */}
                {errors.password && (<small className='text-danger'>{errors.password.message}</small>)}
-               
+               {/* hendle if user trying to log in without userData */}
+                {err && <small className='text-danger'>{err}</small> } 
                <span><input onClick={haveAnyAccount} type="checkbox"/> <span>already have an account ?</span></span>
                {/* offer-btn came from OfferCard btn-border came from App.css*/}
                <div className="login-btn">

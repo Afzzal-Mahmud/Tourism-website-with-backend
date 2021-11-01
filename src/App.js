@@ -8,10 +8,12 @@ import RoomCard from './Pages/Room/RoomCard';
 import Pricing from './Pages/Pricing/Pricing';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LogIn from './Components/LogIn/LogIn';
+import AuthProvider from './Context/AuthProvider';
 
 function App() {
   return (
-    <Router>
+    <AuthProvider>
+      <Router>
       <Header></Header>
       <Switch>
         <Route exact path='/' component={Carousel}></Route>
@@ -23,6 +25,7 @@ function App() {
       </Switch>
       <Footer></Footer>
     </Router>
+    </AuthProvider>
   );
 }
 

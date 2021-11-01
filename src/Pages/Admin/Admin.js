@@ -1,9 +1,21 @@
 import React from "react";
+import axios from 'axios'
 import { useForm } from "react-hook-form";
 function Admin() {
     /* function add data to mongoDb database */
     function addToDb(data) {
-        console.log(data)
+        const offers = {
+            key : data.key,
+            name: data.name ,
+            image : data.image,
+            price : data.price,
+            description : data.description
+        }
+        axios.post('http://localhost:5000/offers',offers)
+        .then(Response => {
+            console.log(Response)
+        })
+        console.log(offers)
     }
     /* hook form validation */
     const { register, handleSubmit, formState: { errors },reset } = useForm();
@@ -39,6 +51,13 @@ function Admin() {
                <input placeholder='minmum price 50 and max price 2000' type="number" {...register("price", { min: 50, max: 2000 })}/>
                {/* hendling price errors */}
                {errors.key && (<small className='text-danger'>{errors.price.message}</small>)}
+
+
+               {/* image field validation */}
+               <label className='fw-bold' htmlFor="image">Image url</label>
+               <input placeholder='include image link' type="text" {...register("image", { required: 'input your image url'})}/>
+               {/* hendling image errors */}
+               {errors.image && (<small className='text-danger'>{errors.image.message}</small>)}
 
 
                {/* description field validation */}

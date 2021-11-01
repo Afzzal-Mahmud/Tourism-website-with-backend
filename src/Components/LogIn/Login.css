@@ -1,0 +1,26 @@
+.form-field{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 2em;
+}
+.form-field input {
+    margin-bottom: 1em;
+}
+.login-btn{
+    display: flex;
+}
+/* adding responsive design */
+@media screen and (max-width:532px) {
+    .form-field{
+        width: 70%;
+    }
+    .login-btn{
+        flex-direction: column;
+    }  
+    .login-btn button {
+        width: 100%;
+        margin: 10px;
+    }
+}

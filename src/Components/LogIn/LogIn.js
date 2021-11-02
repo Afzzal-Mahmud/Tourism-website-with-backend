@@ -15,14 +15,17 @@ function LogIn(){
     const history = useHistory()
     const redirectUrl = location?.state?.from || '/home'
     /* google sign in method */
-    const {signInUsignGoogle,setUser,setErr,err} = useAuth()
+    const {signInUsignGoogle,setUser,setErr,err,setIsLoading} = useAuth()
     /* redirect to the main page with google signIn */
     function hendleGoogleSignIn() {
         signInUsignGoogle()
         .then(result => {
+            setIsLoading(true)
             console.log(result.user)
             setUser(result.user)
             history.push(redirectUrl)
+        }).finally(() =>{
+            setIsLoading(false)
         })
     }
     /* hook form validation */
@@ -49,20 +52,26 @@ function LogIn(){
     function logInUser(userEmail,userPassword) {
         signInWithEmailAndPassword(auth,userEmail,userPassword)
         .then(result =>{
+            setIsLoading(true)
             console.log(result.user)
             setUser(result.user)
             history.push(redirectUrl)
         }).catch(error =>{
             console.log(error)
             setErr("you don't have any account or invalid password")
+        }).finally(() =>{
+            setIsLoading(false)
         })
     }
     function createUser(userEmail,userPassword) {
         createUserWithEmailAndPassword(auth,userEmail,userPassword)
         .then(result =>{
+            setIsLoading(true)
             console.log(result.user)
             setUser(result.user)
             history.push(redirectUrl)
+        }).finally(() =>{
+            setIsLoading(false)
         })
     }
     /* for checking the user account */

@@ -11,6 +11,9 @@ function useFirebase(){
     /* create error state */
     const [err,setErr] = useState('')
 
+    /* fixing reload issue */
+    const [isLoading,setIsLoading] = useState(true)
+
     /* use googleLog In */
     function signInUsignGoogle() {
         const googleProvider = new GoogleAuthProvider()
@@ -34,6 +37,7 @@ function useFirebase(){
             }else{
                 setUser({})
             }
+            setIsLoading(false)
         })
     },[])
     return{
@@ -42,7 +46,9 @@ function useFirebase(){
         setUser,
         err,
         setErr,
-        logOut
+        logOut,
+        isLoading,
+        setIsLoading
     }
 }
 export default useFirebase

@@ -24,10 +24,12 @@ function App() {
         <Route path='/recommended' component={Offer}></Route>
         <Route path='/bestplan' component={RoomCard}></Route>
         <Route path='/membership' component={Pricing}></Route>
-        <Route path='/admin' component={Admin}></Route>
         <Route path='/login' component={LogIn}></Route>
         <PrivateRoute path='/yourcart'>
           <YourCart></YourCart>
+        </PrivateRoute>
+        <PrivateRoute path='/yourcart'>
+          <Admin></Admin>
         </PrivateRoute>
       </Switch>
       <Footer></Footer>

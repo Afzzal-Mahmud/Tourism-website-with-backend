@@ -5,12 +5,26 @@ import { useForm } from "react-hook-form";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import useAuth from '../../Hooks/useAuth';
 
+import { useHistory, useLocation } from "react-router-dom";
 
 /* LogIn components */
 
 function LogIn(){
+    /* go back to original location where user wants to go */
+    const location = useLocation()
+    const history = useHistory()
+    const redirectUrl = location?.state?.from || '/home'
     /* google sign in method */
     const {signInUsignGoogle,setUser,setErr,err} = useAuth()
+    /* redirect to the main page with google signIn */
+    function hendleGoogleSignIn() {
+        signInUsignGoogle()
+        .then(result => {
+            console.log(result.user)
+            setUser(result.user)
+            history.push(redirectUrl)
+        })
+    }
     /* hook form validation */
     const { register, handleSubmit, formState: { errors },reset } = useForm();
     /* user status */
@@ -36,6 +50,8 @@ function LogIn(){
         signInWithEmailAndPassword(auth,userEmail,userPassword)
         .then(result =>{
             console.log(result.user)
+            setUser(result.user)
+            history.push(redirectUrl)
         }).catch(error =>{
             console.log(error)
             setErr("you don't have any account or invalid password")
@@ -46,6 +62,7 @@ function LogIn(){
         .then(result =>{
             console.log(result.user)
             setUser(result.user)
+            history.push(redirectUrl)
         })
     }
     /* for checking the user account */
@@ -85,7 +102,7 @@ function LogIn(){
                <div className="login-btn">
                    {/* show status based button */}
                    <button className='offer-btn btn-border me-4'>{status ? "Log In" : "Sign Up" }</button>
-                   <button onClick={signInUsignGoogle} className='offer-btn btn-border'>Google LogIn</button>
+                   <button onClick={hendleGoogleSignIn} className='offer-btn btn-border'>Google LogIn</button>
                </div>
            </form>
        </Container>

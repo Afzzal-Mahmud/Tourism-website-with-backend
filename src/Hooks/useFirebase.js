@@ -14,11 +14,8 @@ function useFirebase(){
     /* use googleLog In */
     function signInUsignGoogle() {
         const googleProvider = new GoogleAuthProvider()
-        signInWithPopup(auth,googleProvider)
-        .then(result => {
-            console.log(result.user)
-            setUser(result.user)
-        })
+        /* for redirect purpose use google logIn then on LogIn components */
+        return signInWithPopup(auth,googleProvider) 
     }
 
     /* use logOut */

@@ -29,7 +29,7 @@ function App() {
         <PrivateRoute path='/yourcart'>
           <YourCart></YourCart>
         </PrivateRoute>
-        <PrivateRoute path='/yourcart'>
+        <PrivateRoute path='/admin'>
           <Admin></Admin>
         </PrivateRoute>
        <Route path='' component={NotFound}></Route>

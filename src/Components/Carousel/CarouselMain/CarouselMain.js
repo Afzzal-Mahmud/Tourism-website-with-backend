@@ -3,7 +3,7 @@ import './CarouselMain.css'
 import Carousel from 'react-bootstrap/Carousel';/* import images */
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import OfferCard from '../../../Pages/Offer/OfferCard';
+import Offer from '../../../Pages/Offer/Offer';
 /* carousel banner components */
 function CarouselMain() {
     return (
@@ -71,7 +71,7 @@ function CarouselMain() {
             </Carousel.Item>
         </Carousel>
         <Container>
-            <OfferCard></OfferCard>
+            <Offer></Offer>
         </Container>
         </>
     )

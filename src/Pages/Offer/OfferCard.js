@@ -2,42 +2,33 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './OfferCard.css'
 /* offer card components */
-function OfferCard(){
+function OfferCard({offerObject}){
+    const {image,name,description,price} = offerObject
     return(
-       <div className="d-flex m-4">
+    //    <div className="d-flex m-4">
            <div className="card-main">
                <div className="card-img">
-                   <img src="https://i.ibb.co/HBBpJ9q/coffee.jpg" alt="" />
+                   <img src={image} alt="" />
                </div>
                <div className="card-body">
-                   <h3>welcome to offer</h3>
-                   <p className='hide-mobile'>
-                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae porro soluta fugiat molestiae facere sequi?
+                   <h3>{name}</h3>
+                   <p>
+                       {description}
                    </p>
-                   <span>star icon ***</span>
-                   <h5>$350 per person</h5>
+                   {/* add star icon */}
+                   <span>
+                   <i class="bi bi-star-fill"></i>
+                   <i class="bi bi-star-fill"></i>
+                   <i class="bi bi-star-fill"></i>
+                   <i class="bi bi-star-fill"></i>
+                   <i class="bi bi-star-fill"></i>
+                   </span>
+                   <h5>{price} per person</h5>
                    {/* offer btn came from offer.css and btn-border came from App.css */}
                    <Link to='/yourcart'><button className='offer-btn btn-border'>Add Offer</button></Link>
                </div>
            </div>
-           {/* last one */}
-           <div className="card-main d-flex">
-               <div className="card-img">
-                   <img src="https://i.ibb.co/pzrfKd6/mountain.jpg" alt="" />
-               </div>
-               <div className="card-body">
-                   <h3>welcome to offer</h3>
-                   <p className='hide-mobile'>
-                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae porro soluta fugiat molestiae facere sequi?
-                   </p>
-                   <span>star icon ***</span>
-                   <h5>$350 per person</h5>
-                   {/* offer btn came from offer.css and btn-border came from App.css */}
-                   <Link to='/yourcart'><button className='offer-btn btn-border'>Add Offer</button></Link>
-               </div>
-           </div>
-           {/* last one end */}
-       </div>
+    //    </div>
     )
 }
 export default OfferCard

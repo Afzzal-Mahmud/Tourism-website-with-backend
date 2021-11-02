@@ -4,6 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';/* import images */
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Offer from '../../../Pages/Offer/Offer';
+import { Link } from 'react-router-dom';
 /* carousel banner components */
 function CarouselMain() {
     return (
@@ -20,11 +21,12 @@ function CarouselMain() {
                     <p className='hide-mobile'>Walking to the mountain is a new experience with wild animal</p>
                     {/* carousel btn container */}
                     <div className="caption-btn">
-                        <Button className='fw-bold me-4  hide-mobile'>Pricing</Button>
-                        <Button className='fw-bold 
-                        primary-background 
-                        btn-border ms-4'
-                        >See Campain</Button>
+                    <Link to='/membership'><Button className='fw-bold me-4 hide-mobile'>Pricing</Button></Link>
+
+                    <Link to='/yourcart'><Button className='fw-bold 
+                    primary-background 
+                    btn-border'
+                    >Your Collection</Button></Link>
                     </div>
                 </div>
             </Carousel.Item>
@@ -40,11 +42,12 @@ function CarouselMain() {
                     <p className='hide-mobile'>If you are thinking about how the mountain look come and join</p>
                     {/* carousel btn container */}
                     <div className="caption-btn">
-                        <Button className='fw-bold me-4 hide-mobile'>Pricing</Button>
-                        <Button className='fw-bold 
-                        primary-background 
-                        btn-border'
-                        >See Campain</Button>
+                    <Link to='/membership'><Button className='fw-bold me-4 hide-mobile'>Pricing</Button></Link>
+
+                    <Link to='/yourcart'><Button className='fw-bold 
+                    primary-background 
+                    btn-border'
+                    >Your Collection</Button></Link>
                     </div>
                 </div>
             </Carousel.Item>
@@ -60,12 +63,12 @@ function CarouselMain() {
                     <p className='hide-mobile'>You may looking for the freesh air so hear the mountain calling you</p>
                     {/* carousel btn container */}
                     <div className="caption-btn">
-                        <Button className='fw-bold me-4 hide-mobile'>Pricing</Button>
+                        <Link to='/membership'><Button className='fw-bold me-4 hide-mobile'>Pricing</Button></Link>
 
-                        <Button className='fw-bold 
+                        <Link to='/yourcart'><Button className='fw-bold 
                         primary-background 
                         btn-border'
-                        >See Campain</Button>
+                        >Your Collection</Button></Link>
                     </div>
                 </div>
             </Carousel.Item>

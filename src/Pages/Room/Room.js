@@ -7,7 +7,7 @@ function Room() {
     const [rooms,setRooms] = useState([])
 
     useEffect(()=>{
-        fetch('./rooms.json')
+        fetch('http://localhost:5000/userorder')
         .then(Response => Response.json())
         .then(data => {
             setRooms(data)

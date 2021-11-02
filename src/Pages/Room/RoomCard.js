@@ -8,15 +8,15 @@ import { Link } from "react-router-dom";
 // import { Facebook, Google, Twitter } from "bootstrap-icons";
 
 function RoomCard({roomObject}) {
-    // const {name, image, description} = roomObject;
+    const {name, image, description} = roomObject;
 
     return (
         <Col xs={12} md={4}>
-        <Card style={{margin:"1.5em"}}>
-            <Card.Img variant="top" src="https://i.ibb.co/1JfRTRV/images-4.jpg" />
+        <Card className='h-100' style={{margin:"1.5em"}}>
+            <Card.Img variant="top" src={image} />
             <Card.Body>
-                <Card.Title>Amaizing title</Card.Title>
-                <p>this is the Amaizing description</p>
+                <Card.Title>{name}</Card.Title>
+                <p>{description}</p>
                 <div className="grid-icon">
                     <p><i class="bi bi-facebook"></i> facebook</p>
                     <p><i class="bi bi-wifi"></i> free wifi</p>

@@ -26,9 +26,9 @@ function App() {
         <Route path='/membership' component={Pricing}></Route>
         <Route path='/admin' component={Admin}></Route>
         <Route path='/login' component={LogIn}></Route>
-        <Route path='/yourcart'>
+        <PrivateRoute path='/yourcart'>
           <YourCart></YourCart>
-        </Route>
+        </PrivateRoute>
       </Switch>
       <Footer></Footer>
     </Router>

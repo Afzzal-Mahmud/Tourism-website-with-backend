@@ -12,6 +12,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Admin from './Pages/Admin/Admin';
 import Offer from './Pages/Offer/Offer';
 import Room from './Pages/Room/Room';
+import NotFound from './Pages/NotFoundPage/NotFound';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <PrivateRoute path='/yourcart'>
           <Admin></Admin>
         </PrivateRoute>
+       <Route path='' component={NotFound}></Route>
       </Switch>
       <Footer></Footer>
     </Router>

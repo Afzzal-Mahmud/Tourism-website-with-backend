@@ -3,47 +3,43 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import './OfferCard.css'
 import useAuth from '../../Hooks/useAuth';
+import { async } from '@firebase/util';
 /* offer card components */
 function OfferCard({offerObject}){
-    const {user} = useAuth()
-    const {image,name,description,price} = offerObject
-    /* seting the user order */
-    const [currentOrderItem,setCurrentOrderItem] = useState([])
-    /* setting the status of the uesr */
-    // const [status,setStatus] = useState(false)
+    /* seting the user order */ 
+    const {user,userOrder} = useAuth()
+ 
+    const {_id,image,name,description,price} = offerObject
     const history = useHistory()
 
     function redirectLogIn() {
-        // setStatus(true)
         history.push('/login') 
     }
 
     /* add order to the ui */
-    function addOrder() {
+        function addOrder(currentId) {
         const orderItem = offerObject;
         orderItem.email = user.email;
         orderItem.type = 'current offers'
-
-        /* conditionali add item to the database */
-
-        if(currentOrderItem._id != orderItem._id){
+        
+        const previousOrderId = userOrder.find(order => order._id == currentId)
+        
+         /* responce function  */
+         if(currentId !=previousOrderId){
             axios.post('http://localhost:5000/order',orderItem)
-            .then(res => {
-                const newOrder = JSON.parse(res?.config?.data)
-                setCurrentOrderItem(newOrder)
-               /* if it have the id we show this message */
+            .then(res =>{
+                console.log(res)
                 if(res.data.insertedId){
-                    alert('Offer add successfully')
+                    alert('order added successfully')
                 }
             })
-            .finally(err => {
-                console.log(err)
-            })
-        }else{
-            alert('you already add this item')
         }
-
+        
     }
+
+   
+    
+
     return(
     //    <div className="d-flex m-4">
            <div className="card-main">
@@ -66,7 +62,7 @@ function OfferCard({offerObject}){
                    <h5>{price} per person</h5>
 
                    {
-                       user.email ? <button onClick={addOrder}
+                       user.email ? <button onClick={() =>addOrder(_id)}
                        className='offer-btn btn-border'>Add Offer</button>
                       
                        : <button onClick={redirectLogIn} className='offer-btn btn-border'>Log In To Add</button>

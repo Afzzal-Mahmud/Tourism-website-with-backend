@@ -7,7 +7,7 @@ function Room() {
     const [rooms,setRooms] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/userorder')
+        fetch('https://protected-gorge-97772.herokuapp.com/userorder')
         .then(Response => Response.json())
         .then(data => {
             setRooms(data)

@@ -7,7 +7,7 @@ function YourCartCard({orderObject}) {
     const {key,name, image, type} = orderObject;
 
     function hendleDelete(itemKey) {
-        fetch(`http://localhost:5000/deleteorder/${itemKey}`,{
+        fetch(`https://protected-gorge-97772.herokuapp.com/deleteorder/${itemKey}`,{
             method : "delete"
         })
         .then(res => {

@@ -8,7 +8,7 @@ function Offer(){
     
     /* featching data from localHost */
     useEffect(()=>{
-        fetch('http://localhost:5000/alloffers')
+        fetch('https://protected-gorge-97772.herokuapp.com/alloffers')
         .then(res => res.json())
         .then(data =>{
             console.log(data)

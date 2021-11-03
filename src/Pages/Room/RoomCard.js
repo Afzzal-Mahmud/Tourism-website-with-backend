@@ -14,7 +14,7 @@ function RoomCard({roomObject}) {
         roomItem.email = user.email;
         roomItem.type = "Hotel room"
         roomItem.detail = 'order'
-        axios.post('http://localhost:5000/order',roomItem)
+        axios.post('https://protected-gorge-97772.herokuapp.com/order',roomItem)
         .then(res =>{
             console.log(res)
             if(res.data.insertedId){

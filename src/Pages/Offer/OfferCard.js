@@ -27,7 +27,7 @@ function OfferCard({offerObject}){
         
          /* responce function  */
          if(currentId !=previousOrderId){
-            axios.post('http://localhost:5000/order',orderItem)
+            axios.post('https://protected-gorge-97772.herokuapp.com/order',orderItem)
             .then(res =>{
                 console.log(res)
                 if(res.data.insertedId){

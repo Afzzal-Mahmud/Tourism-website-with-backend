@@ -13,7 +13,7 @@ function YourCart() {
     /* getting user added data from server */
      
     useEffect( ()=>{
-        fetch(`http://localhost:5000/useroffer/${userEmail}`)
+        fetch(`https://protected-gorge-97772.herokuapp.com/useroffer/${userEmail}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)

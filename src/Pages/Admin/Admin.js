@@ -11,7 +11,7 @@ function Admin() {
             price : data.price,
             description : data.description
         }
-        axios.post('http://localhost:5000/offers',offers)
+        axios.post('https://protected-gorge-97772.herokuapp.com/offers',offers)
         .then(Response => {
             if(Response.data.insertedId){
                 alert('your offers added successfully')

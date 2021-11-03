@@ -25,6 +25,8 @@ function ConfirmShipping() {
         history.push('/home')
     }
     return(
+        <>
+        <h2 className='text-center pt-4'>Add Your Shipping Address</h2>
         <form className='form-field' onSubmit={handleSubmit(clearCollection)}>
 
                {/* email field validation */}
@@ -53,6 +55,7 @@ function ConfirmShipping() {
                    <button className='offer-btn btn-border'>Confirm</button>
                </div>
            </form>
+           </>
     )
 }
 export default ConfirmShipping

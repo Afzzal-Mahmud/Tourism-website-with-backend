@@ -2,13 +2,26 @@ import React from "react";
 import './RoomCard.css'
 import Card from "react-bootstrap/Card";
 import  Col from "react-bootstrap/Col";
-import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
-
-// import { Facebook, Google, Twitter } from "bootstrap-icons";
+import axios from 'axios'
+import useAuth from "../../Hooks/useAuth";
+import { kill } from "process";
 
 function RoomCard({roomObject}) {
-    const {name, image, description} = roomObject;
+    const {user} = useAuth()
+    const {_id,name, image, description} = roomObject;
+
+    function addRoom(id) {
+        const roomItem = roomObject;
+        roomItem.email = user.email;
+        roomItem.type = "Hotel room"
+        axios.post('http://localhost:5000/order',roomItem)
+        .then(res =>{
+            console.log(res)
+            if(res.data.insertedId){
+                alert('room added successfully')
+            }
+        })
+    }
 
     return (
         <Col xs={12} md={4}>
@@ -25,8 +38,7 @@ function RoomCard({roomObject}) {
                     <p><i class="bi bi-music-note-beamed"></i> speacker</p>
                     <p><i class="bi bi-globe2"></i> global</p>
                 </div>
-                <button className='offer-btn'>Book Now</button>
-                {/* <Link to='/login'><button className='offer-btn'>Book Now</button></Link> */}
+                <button onClick={() =>addRoom(_id)} className='offer-btn'>Book Now</button>
             </Card.Body>
         </Card>
         </Col>

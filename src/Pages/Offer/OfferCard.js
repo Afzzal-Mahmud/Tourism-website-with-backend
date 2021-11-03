@@ -9,7 +9,6 @@ function OfferCard({offerObject}){
     const {image,name,description,price} = offerObject
     /* seting the user order */
     const [currentOrderItem,setCurrentOrderItem] = useState([])
-    console.log(currentOrderItem,'ontop')
     /* setting the status of the uesr */
     // const [status,setStatus] = useState(false)
     const history = useHistory()
@@ -22,7 +21,8 @@ function OfferCard({offerObject}){
     /* add order to the ui */
     function addOrder() {
         const orderItem = offerObject;
-        orderItem.email = user.email
+        orderItem.email = user.email;
+        orderItem.type = 'current offers'
 
         /* conditionali add item to the database */
 

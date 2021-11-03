@@ -5,6 +5,15 @@ import initializeAuthentication from "../firebase/firebase.init";
 /* initialize the authentication system */
 initializeAuthentication()
 function useFirebase(){
+
+    /* special for mongoDb to geting data */
+    const [userOrder,setUserOrder] = useState([])
+
+
+
+    /* special for mongoDb end */
+
+
     /* create user state */
     const [user,setUser] = useState({})
     const auth = getAuth()
@@ -48,7 +57,9 @@ function useFirebase(){
         setErr,
         logOut,
         isLoading,
-        setIsLoading
+        setIsLoading,
+        userOrder,
+        setUserOrder
     }
 }
 export default useFirebase

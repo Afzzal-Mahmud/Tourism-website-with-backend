@@ -24,7 +24,6 @@ function App() {
         <Route exact path='/' component={Carousel}></Route>
         <Route path='/home' component={Carousel}></Route>
         <Route path='/recommended' component={Offer}></Route>
-        <Route path='/bestplan' component={Room}></Route>
         <Route path='/membership' component={Pricing}></Route>
         <Route path='/login' component={LogIn}></Route>
         <PrivateRoute path='/yourcart'>
@@ -32,6 +31,9 @@ function App() {
         </PrivateRoute>
         <PrivateRoute path='/admin'>
           <Admin></Admin>
+        </PrivateRoute>
+        <PrivateRoute path='/bestplan'>
+          <Room></Room>
         </PrivateRoute>
         <PrivateRoute path='/shipping'>
           <ConfirmShipping></ConfirmShipping>

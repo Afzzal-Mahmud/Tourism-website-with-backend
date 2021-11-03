@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import Card from "react-bootstrap/Card";
 import  Col from "react-bootstrap/Col";
 
@@ -7,17 +6,23 @@ import  Col from "react-bootstrap/Col";
 function YourCartCard({orderObject}) {
     const {key,name, image, type} = orderObject;
 
-    function hendleDelete(key) {
-        fetch(`http://localhost:5000/deleteorder/${key}`,{
-            method : "DELETE",
-            headers : { "content-type" : "application/json" },
+    function hendleDelete(itemKey) {
+        fetch(`http://localhost:5000/deleteorder/${itemKey}`,{
+            method : "delete"
         })
         .then(res => {
             res.json()
-            window.location.reload()
+            if(res.status == 200){
+                const process = window.confirm('are you sure to delete')
+                if(process){
+                    alert('delete successfully')
+                    window.location.reload()
+                }
+            }
+            console.log(res.status)
         })
         .then(data => {
-            console.log(data)
+            console.log(data,'delete item from client side')
         })
     }
 

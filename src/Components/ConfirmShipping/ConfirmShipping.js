@@ -1,11 +1,28 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
+import {useHistory} from 'react-router-dom';
+
 function ConfirmShipping() {
+    const history = useHistory()
     const { register, handleSubmit, formState: { errors },reset } = useForm();
     const {user} = useAuth()
     function clearCollection() {
         console.log('clicked')
+        fetch('http://localhost:5000/deleteall',{
+            method : "delete"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                
+                    alert('Shipping successfully')
+                
+            }
+            console.log(data)
+        })
+        reset()
+        history.push('/home')
     }
     return(
         <form className='form-field' onSubmit={handleSubmit(clearCollection)}>

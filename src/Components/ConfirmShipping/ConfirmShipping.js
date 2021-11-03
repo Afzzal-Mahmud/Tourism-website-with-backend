@@ -9,7 +9,7 @@ function ConfirmShipping() {
     const {user} = useAuth()
     function clearCollection() {
         console.log('clicked')
-        fetch('https://protected-gorge-97772.herokuapp.com/deleteall',{
+        fetch(`https://protected-gorge-97772.herokuapp.com/deleteall/${user.email}`,{
             method : "delete"
         })
         .then(res => res.json())

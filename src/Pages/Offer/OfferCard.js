@@ -21,6 +21,7 @@ function OfferCard({offerObject}){
         const orderItem = offerObject;
         orderItem.email = user.email;
         orderItem.type = 'current offers'
+        orderItem.detail = 'order'
         
         const previousOrderId = userOrder.find(order => order._id == currentId)
         

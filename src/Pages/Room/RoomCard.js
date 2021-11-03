@@ -13,6 +13,7 @@ function RoomCard({roomObject}) {
         const roomItem = roomObject;
         roomItem.email = user.email;
         roomItem.type = "Hotel room"
+        roomItem.detail = 'order'
         axios.post('http://localhost:5000/order',roomItem)
         .then(res =>{
             console.log(res)

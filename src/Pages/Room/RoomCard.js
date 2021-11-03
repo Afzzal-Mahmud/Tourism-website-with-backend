@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 import  Col from "react-bootstrap/Col";
 import axios from 'axios'
 import useAuth from "../../Hooks/useAuth";
-import { kill } from "process";
 
 function RoomCard({roomObject}) {
     const {user} = useAuth()

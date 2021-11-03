@@ -13,6 +13,7 @@ import Admin from './Pages/Admin/Admin';
 import Offer from './Pages/Offer/Offer';
 import Room from './Pages/Room/Room';
 import NotFound from './Pages/NotFoundPage/NotFound';
+import ConfirmShipping from './Components/ConfirmShipping/ConfirmShipping';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </PrivateRoute>
         <PrivateRoute path='/admin'>
           <Admin></Admin>
+        </PrivateRoute>
+        <PrivateRoute path='/shipping'>
+          <ConfirmShipping></ConfirmShipping>
         </PrivateRoute>
        <Route path='' component={NotFound}></Route>
       </Switch>
